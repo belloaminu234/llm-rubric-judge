@@ -1,0 +1,16 @@
+[project]
+name = "llm-rubric-judge"
+version = "0.1.0"
+description = "Evaluates agent/model output against a rubric mixing deterministic code checks with confidence-gated LLM-as-a-judge scoring. Standard library only."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+rubricjudge = "rubricjudge.cli:main"
+
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
