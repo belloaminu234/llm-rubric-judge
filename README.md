@@ -79,9 +79,9 @@ Also manually smoke-tested against real files with the actual CLI (see the examp
 
 ## Limitations
 
-- `python_predicate`'s restricted `eval` is a lightweight guard (empty builtins + a dunder ban), not a hardened sandbox. Treat rubric files as trusted input — the same way you'd treat a CI config — not as arbitrary untrusted user input.
+- `python_predicate`'s restricted `eval` is a lightweight guard (empty builtins + a dunder ban), not a hardened sandbox. Treat rubric files as trusted input the same way you'd treat a CI config, not as arbitrary untrusted user input.
 - Parameter/criterion-to-endpoint association isn't a concern here (unlike some of my other projects) since a rubric criterion's check is fully self-contained; there's no cross-criterion validation.
-- `AnthropicJudge` asks the model to self-report a confidence score in the same response as the grade itself. A model's stated confidence is not a calibrated probability — it's a reasonable, cheap first-pass signal, not a substitute for actually validating judge calibration against held-out labeled data if this were used for anything higher-stakes.
+- `AnthropicJudge` asks the model to self-report a confidence score in the same response as the grade itself. A model's stated confidence is not a calibrated probability. It is a reasonable, cheap first-pass signal, not a substitute for actually validating judge calibration against held-out labeled data if this were used for anything higher-stakes.
 - No retry/backoff logic on the Anthropic API call — a transient network error surfaces directly rather than being retried.
 
 ## License
